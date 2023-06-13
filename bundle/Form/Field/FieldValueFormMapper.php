@@ -24,7 +24,7 @@ class FieldValueFormMapper extends AbstractRelationFormMapper
                     [
                         'required' => $fieldDefinition->isRequired,
                         'label' => $fieldDefinition->getName(),
-                        'allowed_sources' => $fieldSettings['allowedExternalVideoSource'] ?? [],
+                        'allowed_sources' => $fieldSettings['allowedExternalVideoSources'] ?? [],
                     ],
                 )
                 ->setAutoInitialize(false)

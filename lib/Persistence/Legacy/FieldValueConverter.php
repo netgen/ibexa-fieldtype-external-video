@@ -69,8 +69,8 @@ class FieldValueConverter implements Converter
         $settingsData = json_decode($storageDef->dataText5, true, 512, JSON_THROW_ON_ERROR);
         $fieldSettings = &$fieldDef->fieldTypeConstraints->fieldSettings;
 
-        if (array_key_exists('allowedExternalVideoSource', $settingsData)) {
-            $fieldSettings['allowedExternalVideoSource'] = $settingsData['allowedExternalVideoSource'];
+        if (array_key_exists('allowedExternalVideoSources', $settingsData)) {
+            $fieldSettings['allowedExternalVideoSources'] = $settingsData['allowedExternalVideoSources'];
         }
     }
 

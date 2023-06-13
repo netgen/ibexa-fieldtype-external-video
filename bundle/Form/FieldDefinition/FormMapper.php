@@ -17,12 +17,12 @@ class FormMapper extends AbstractRelationFormMapper
     public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data): void
     {
         $isTranslation = $data->contentTypeData->languageCode !== $data->contentTypeData->mainLanguageCode;
-        $fieldDefinitionForm->add('allowedExternalVideoSource', ChoiceType::class, [
+        $fieldDefinitionForm->add('allowedExternalVideoSources', ChoiceType::class, [
             'choices' => [
-                'field_definition.ngexternalvideo.video_source.' . Type::SOURCE_CLOUDFLARE => Type::SOURCE_CLOUDFLARE,
+                'field_definition.ngexternalvideo.video_sources.' . Type::SOURCE_CLOUDFLARE => Type::SOURCE_CLOUDFLARE,
             ],
-            'property_path' => 'fieldSettings[allowedExternalVideoSource]',
-            'label' => /* @Desc("Allowed video source") */ 'field_definition.ngexternalvideo.selection_allowed_video_source',
+            'property_path' => 'fieldSettings[allowedExternalVideoSources]',
+            'label' => /* @Desc("Allowed video sources") */ 'field_definition.ngexternalvideo.selection_allowed_video_sources',
             'multiple' => true,
             'expanded' => true,
         ]);

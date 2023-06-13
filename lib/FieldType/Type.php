@@ -38,7 +38,7 @@ class Type extends FieldType
 {
     public const SOURCE_CLOUDFLARE = 'cloudflare';
     protected $settingsSchema = [
-        'allowedExternalVideoSource' => [
+        'allowedExternalVideoSources' => [
             'type' => 'array',
             'default' => [
                 self::SOURCE_CLOUDFLARE,
@@ -76,7 +76,7 @@ class Type extends FieldType
                 continue;
             }
 
-            if ($name === 'allowedExternalVideoSource') {
+            if ($name === 'allowedExternalVideoSources') {
                 if (!is_array($value) || count(array_intersect($value, [self::SOURCE_CLOUDFLARE])) === 0) {
                     $validationErrors[] = new ValidationError(
                         "Setting '%setting%' value must be one of allowed sources",
