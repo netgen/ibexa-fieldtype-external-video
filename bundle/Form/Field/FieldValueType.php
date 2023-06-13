@@ -50,7 +50,7 @@ class FieldValueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
-            'link_type',
+            'video_source',
             ChoiceType::class,
             [
                 'choices' => [

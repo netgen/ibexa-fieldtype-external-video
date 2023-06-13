@@ -1,0 +1,13 @@
+{% extends '@ibexadesign/content/form_fields.html.twig' %}
+
+{% trans_default_domain 'field_edit' %}
+
+
+{% block ibexa_fieldtype_ngexternalvideo_widget %}
+	{% set is_translation = is_translation ?? false %}
+	{% set allowed_sources = form.parent.vars.value.fieldDefinition.fieldSettings.allowedExternalVideoSource %}
+	<div class="link-type-options hidden" data-allowed-video-sources="{{ allowed_sources }}">
+		{{- form_row(form.video_source, { disabled: is_translation }) -}}
+	</div>
+	{{- form_row(form.id, { disabled: is_translation }) -}}
+{% endblock %}
