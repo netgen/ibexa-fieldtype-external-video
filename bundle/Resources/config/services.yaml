@@ -1,0 +1,43 @@
+parameters:
+    ng.fieldtype.external_video.identifier: 'ngexternalvideo'
+
+services:
+    Netgen\IbexaFieldTypeExternalVideo\FieldType\Type:
+        parent: Ibexa\Core\FieldType\FieldType
+        public: true
+        arguments:
+            - '@Ibexa\Core\Persistence\Cache\ContentHandler'
+            - '%env(CLOUDFLARE_API_URL)%'
+            - '%env(CLOUDFLARE_BEARER_TOKEN)%'
+        tags:
+            - { name: ibexa.field_type, alias: '%ng.fieldtype.external_video.identifier%' }
+
+    Netgen\IbexaFieldTypeExternalVideo\Persistence\Legacy\FieldValueConverter:
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: '%ng.fieldtype.external_video.identifier%' }
+
+    Netgen\IbexaFieldTypeExternalVideoBundle\Form\FieldDefinition\FormMapper:
+        arguments:
+            - '@ibexa.api.service.content_type'
+            - '@ibexa.api.service.location'
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: '%ng.fieldtype.external_video.identifier%' }
+
+    Netgen\IbexaFieldTypeExternalVideo\FieldType\SearchFields:
+        tags:
+            - { name: ibexa.field_type.indexable, alias: '%ng.fieldtype.external_video.identifier%' }
+
+    Netgen\IbexaFieldTypeExternalVideoBundle\Form\Field\FieldValueFormMapper:
+        arguments:
+            - '@ibexa.api.service.content_type'
+            - '@ibexa.api.service.location'
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: '%ng.fieldtype.external_video.identifier%' }
+
+    Netgen\IbexaFieldTypeExternalVideoBundle\Form\Field\FieldValueType:
+        arguments:
+            - '@ibexa.api.service.content'
+            - '@ibexa.api.service.content_type'
+            - '@ibexa.api.service.field_type'
+        tags:
+            - { name: 'form.type' }
