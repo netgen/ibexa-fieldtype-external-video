@@ -10,7 +10,7 @@
 	{% set url = app.request.server.get('CLOUDFLARE_API_URL') %}
 	<div id="data-api" data-url="{{ url }}" data-token="{{ token }}" style="display: none;"></div>
 
-	<div class="video-sources-options hidden" data-allowed-video-sources="{{ allowed_video_sources }}">
+	<div class="video-sources-options hidden">
 		{{- form_row(form.video_source, { disabled: is_translation }) -}}
 	</div>
 
