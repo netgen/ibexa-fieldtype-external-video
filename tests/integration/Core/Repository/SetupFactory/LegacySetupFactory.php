@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Netgen\IbexaFieldTypeEnhancedLink\Tests\Integration\Core\Repository\SetupFactory;
+namespace Netgen\IbexaFieldTypeExternalVideo\Tests\Integration\Core\Repository\SetupFactory;
 
 use Exception;
 use Ibexa\Contracts\Core\Test\Repository\SetupFactory\Legacy as CoreLegacySetupFactory;
