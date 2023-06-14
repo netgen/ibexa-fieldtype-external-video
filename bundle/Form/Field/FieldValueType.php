@@ -9,7 +9,6 @@ use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\FieldTypeService;
 use JMS\TranslationBundle\Annotation\Desc;
 use Netgen\IbexaFieldTypeExternalVideo\FieldType\Type;
-use Netgen\IbexaFieldTypeExternalVideo\FieldType\Value;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -86,10 +85,6 @@ class FieldValueType extends AbstractType
     {
         /** @var \Netgen\IbexaFieldTypeExternalVideo\FieldType\Value $data */
         $data = $form->getData();
-
-        if (!$data instanceof Value || $data->id === '') {
-            return;
-        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
