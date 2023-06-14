@@ -53,7 +53,7 @@ class FieldValueType extends AbstractType
             ChoiceType::class,
             [
                 'choices' => [
-                    'field_definition.ngexternalvideo.video_source.' . Type::SOURCE_CLOUDFLARE => Type::SOURCE_CLOUDFLARE,
+                    'ngexternalvideo.field_definition.video_source.' . Type::SOURCE_CLOUDFLARE => Type::SOURCE_CLOUDFLARE,
                 ],
                 'label' => /* @Desc("Text") */ 'ngexternalvideo.video_source',
                 'required' => true,

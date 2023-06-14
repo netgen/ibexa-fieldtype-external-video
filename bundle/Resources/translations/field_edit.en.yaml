@@ -1,0 +1,3 @@
+ngexternalvideo.field_definition.video_source.cloudflare: 'Cloudflare'
+ngexternalvideo.video_source: 'Video source'
+ngexternalvideo.video_id: 'Video ID'
