@@ -7,8 +7,15 @@
         {% if not ibexa_field_is_empty(content, field) %}
             {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ibexa-field-preview ibexa-field-preview--ngexternalvideo')|trim}) %}
             <div {{ block('field_attributes') }}>
-                <p>Video source: {{ field.value.source }}</p>
-                <p>Video ID: {{ field.value.id }}</p>
+                {% set token = app.request.server.get('CLOUDFLARE_BEARER_TOKEN') %}
+                {% set url = app.request.server.get('CLOUDFLARE_API_URL') %}
+                <div id="data-api" data-url="{{ url~field.value.id }}" data-token="{{ token }}" style="display: none;"></div>
+                <p>SOURCE: {{ field.value.source }}</p>
+                <p>ID: {{ field.value.id }}</p>
+                <p>Name: <span id="video_name"></span></p>
+                <p>Duration: <span id="video_duration"></span></p>
+                <p>Resolution: <span id="video_resolution"></span></p>
+                <img id="thumbnail_image"/>
             </div>
         {% endif %}
     {% endapply %}

@@ -32,7 +32,7 @@ class FieldValueTransformer implements DataTransformerInterface
     public function reverseTransform($value): ?Value
     {
         return new Value(
-            $value['id'],
+            $value['id'] === null ? "" : $value['id'],
             $value['source'],
         );
     }

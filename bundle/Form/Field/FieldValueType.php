@@ -67,7 +67,7 @@ class FieldValueType extends AbstractType
             TextType::class,
             [
                 'label' => /* @Desc("Text") */ 'ngexternalvideo.video_id',
-                'required' => false,
+                'required' => true,
                 'disabled' => false,
             ],
         );
