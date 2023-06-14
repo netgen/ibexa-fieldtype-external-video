@@ -71,7 +71,7 @@
                     .catch(err => console.error(err));
             }
 
-            const formClass = document.getElementsByClassName('ibexa-field-edit--ngexternalvideo')[0]; // Access the first element in the collection
+            const formClass = document.getElementsByClassName('ibexa-field-edit-ngexternalvideo-id')[0]; // Access the first element in the collection
             const initialFormClass = formClass.value;
 
             formClass.addEventListener('input', function (event) {

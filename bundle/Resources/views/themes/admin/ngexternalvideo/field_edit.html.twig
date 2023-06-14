@@ -10,11 +10,11 @@
 	{% set url = app.request.server.get('CLOUDFLARE_API_URL') %}
 	<div id="data-api" data-url="{{ url }}" data-token="{{ token }}" style="display: none;"></div>
 
-	<div class="video-sources-options hidden">
+	<div class="video-sources-options">
 		{{- form_row(form.video_source, { disabled: is_translation }) -}}
 	</div>
 
-	{{ form_row(form.id, {'attr': {'class': 'ibexa-field-edit--ngexternalvideo'}, disabled: is_translation}) }}
+	{{ form_row(form.id, {'attr': {'class': 'ibexa-field-edit-ngexternalvideo-id'}, disabled: is_translation}) }}
 
 	<span id="no_video_found_message"></span>
 
