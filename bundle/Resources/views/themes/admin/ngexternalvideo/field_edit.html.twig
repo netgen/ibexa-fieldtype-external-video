@@ -1,0 +1,30 @@
+{% extends '@ibexadesign/content/form_fields.html.twig' %}
+
+{% trans_default_domain 'field_edit' %}
+
+
+{% block ibexa_fieldtype_ngexternalvideo_widget %}
+	{% set is_translation = is_translation ?? false %}
+
+	{% set token = app.request.server.get('CLOUDFLARE_BEARER_TOKEN') %}
+	{% set url = app.request.server.get('CLOUDFLARE_API_URL') %}
+	<div id="data-api" data-url="{{ url }}" data-token="{{ token }}" style="display: none;"></div>
+
+	<div class="video-sources-options hidden" data-allowed-video-sources="{{ allowed_video_sources }}">
+		{{- form_row(form.video_source, { disabled: is_translation }) -}}
+	</div>
+
+	{{ form_row(form.id, {'attr': {'class': 'ibexa-field-edit--ngexternalvideo'}, disabled: is_translation}) }}
+
+	<span id="no_video_found_message"></span>
+
+	<span id="video_name"></span>
+	<br/>
+	<span id="video_duration"></span>
+	<br/>
+	<span id="video_resolution"></span>
+	<br/>
+	<img id="thumbnail_image"/>
+	<br/>
+	<span id="video_resolution"></span>
+{% endblock %}
