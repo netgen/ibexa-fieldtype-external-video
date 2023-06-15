@@ -18,7 +18,8 @@
                 document.getElementById('video_name').innerHTML = '';
                 document.getElementById('video_duration').innerHTML = '';
                 document.getElementById('video_resolution').innerHTML = '';
-                document.getElementById('thumbnail_image').src = '';
+                document.getElementById('video_thumbnail_image').src = '';
+                document.getElementById('video_date_uploaded').innerHTML = '';
                 const noVideoFoundMessage = document.getElementById('no_video_found_message');
                 if (noVideoFoundMessage) {
                     noVideoFoundMessage.parentNode.removeChild(noVideoFoundMessage);
@@ -47,10 +48,13 @@
                                 document.getElementById('video_duration').textContent = 'Duration: ' + response.result.duration + 's';
                             }
                             if (response.result.input.width && response.result.input.height) {
-                                document.getElementById('video_resolution').textContent ='Resolution: ' + response.result.input.width + 'x' + response.result.input.height;
+                                document.getElementById('video_resolution').textContent = 'Resolution: ' + response.result.input.width + 'x' + response.result.input.height;
                             }
                             if (response.result.thumbnail) {
-                                document.getElementById('thumbnail_image').src =response.result.thumbnail;
+                                document.getElementById('video_thumbnail_image').src =response.result.thumbnail;
+                            }
+                            if (response.result.uploaded) {
+                                document.getElementById('video_date_uploaded').textContent = 'Uploaded at: ' + response.result.uploaded;
                             }
                             const noVideoFoundMessage = document.getElementById('no_video_found_message');
                             if (noVideoFoundMessage) {
