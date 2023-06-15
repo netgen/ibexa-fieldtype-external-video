@@ -10,12 +10,13 @@
                 {% set token = app.request.server.get('CLOUDFLARE_BEARER_TOKEN') %}
                 {% set url = app.request.server.get('CLOUDFLARE_API_URL') %}
                 <div id="data-api" data-url="{{ url~field.value.id }}" data-token="{{ token }}" style="display: none;"></div>
-                <p>SOURCE: {{ field.value.source }}</p>
+                <p>Source: {{ field.value.source }}</p>
                 <p>ID: {{ field.value.id }}</p>
-                <p>Name: <span id="video_name"></span></p>
-                <p>Duration: <span id="video_duration"></span></p>
-                <p>Resolution: <span id="video_resolution"></span></p>
-                <img id="thumbnail_image"/>
+                <p id="video_name"></p>
+                <p id="video_duration"></p>
+                <p id="video_resolution"></p>
+                <p id="video_date_uploaded"></p>
+                <img id="video_thumbnail_image"/>
             </div>
         {% endif %}
     {% endapply %}

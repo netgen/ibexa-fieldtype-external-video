@@ -17,16 +17,19 @@
                 .then(response => response.json())
                 .then(response => {
                     if (response.result.meta.filename) {
-                        document.getElementById('video_name').textContent = response.result.meta.filename;
+                        document.getElementById('video_name').textContent = 'Name: ' + response.result.meta.filename;
                     }
                     if (response.result.duration) {
-                        document.getElementById('video_duration').textContent = response.result.duration + 's';
+                        document.getElementById('video_duration').textContent = 'Duration: ' + response.result.duration + 's';
                     }
                     if (response.result.input.width && response.result.input.height) {
-                        document.getElementById('video_resolution').textContent = response.result.input.width + 'x' + response.result.input.height;
+                        document.getElementById('video_resolution').textContent = 'Resolution: ' + response.result.input.width + 'x' + response.result.input.height;
                     }
                     if (response.result.thumbnail) {
-                        document.getElementById('thumbnail_image').src = response.result.thumbnail;
+                        document.getElementById('video_thumbnail_image').src =response.result.thumbnail;
+                    }
+                    if (response.result.uploaded) {
+                        document.getElementById('video_date_uploaded').textContent = 'Uploaded at: ' + response.result.uploaded;
                     }
                 })
                 .catch(err => console.error(err));
