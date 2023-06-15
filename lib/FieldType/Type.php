@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Netgen\IbexaFieldTypeExternalVideo\FieldType;
 
 use Ibexa\Contracts\Core\FieldType\Value as SPIValue;
+use Ibexa\Contracts\Core\Persistence\Content\Handler;
 use Ibexa\Contracts\Core\Repository\Values\ContentType\FieldDefinition;
 use Ibexa\Core\Base\Exceptions\InvalidArgumentType;
 use Ibexa\Core\FieldType\FieldType;
 use Ibexa\Core\FieldType\ValidationError;
 use Ibexa\Core\FieldType\Value as BaseValue;
-use Ibexa\Core\Persistence\Cache\ContentHandler;
 
 use function array_intersect;
 use function count;
@@ -45,16 +45,16 @@ class Type extends FieldType
             ],
         ],
     ];
-    private ContentHandler $contentHandler;
+    private Handler $handler;
     private string $apiUrl;
     private string $apiBearerToken;
 
     public function __construct(
-        ContentHandler $contentHandler,
+        Handler $handler,
         string $apiUrl,
         string $apiBearerToken
     ) {
-        $this->contentHandler = $contentHandler;
+        $this->handler = $handler;
         $this->apiUrl = $apiUrl;
         $this->apiBearerToken = $apiBearerToken;
     }
