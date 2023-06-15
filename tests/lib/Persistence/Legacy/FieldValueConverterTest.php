@@ -34,7 +34,7 @@ class FieldValueConverterTest extends TestCase
                 'fieldTypeConstraints' => new FieldTypeConstraints(
                     [
                         'fieldSettings' => [
-                            'allowedExternalVideoSource' => [Type::SOURCE_CLOUDFLARE],
+                            'allowedExternalVideoSources' => [Type::SOURCE_CLOUDFLARE],
                         ],
                     ],
                 ),
@@ -45,7 +45,7 @@ class FieldValueConverterTest extends TestCase
         $expectedStorageFieldDefinition->dataText5 =
             <<<'DATATEXT'
             {
-                "allowedExternalVideoSource": [
+                "allowedExternalVideoSources": [
                     "cloudflare"
                 ]
             }
@@ -66,7 +66,7 @@ class FieldValueConverterTest extends TestCase
         $storageFieldDefinition->dataText5 =
             <<<'DATATEXT'
             {
-                "allowedExternalVideoSource": [
+                "allowedExternalVideoSources": [
                     "cloudflare"
                 ]
             }
@@ -76,7 +76,7 @@ class FieldValueConverterTest extends TestCase
         $expectedFieldDefinition->fieldTypeConstraints = new FieldTypeConstraints(
             [
                 'fieldSettings' => [
-                    'allowedExternalVideoSource' => [Type::SOURCE_CLOUDFLARE],
+                    'allowedExternalVideoSources' => [Type::SOURCE_CLOUDFLARE],
                 ],
             ],
         );
@@ -96,7 +96,7 @@ class FieldValueConverterTest extends TestCase
         $expectedFieldDefinition->fieldTypeConstraints = new FieldTypeConstraints(
             [
                 'fieldSettings' => [
-                    'allowedExternalVideoSource' => [Type::SOURCE_CLOUDFLARE],
+                    'allowedExternalVideoSources' => [Type::SOURCE_CLOUDFLARE],
                 ],
             ],
         );
@@ -105,7 +105,7 @@ class FieldValueConverterTest extends TestCase
         $actualFieldDefinition->fieldTypeConstraints = new FieldTypeConstraints(
             [
                 'fieldSettings' => [
-                    'allowedExternalVideoSource' => [Type::SOURCE_CLOUDFLARE],
+                    'allowedExternalVideoSources' => [Type::SOURCE_CLOUDFLARE],
                 ],
             ],
         );

@@ -138,7 +138,7 @@ class ExternalVideoTypeTest extends FieldTypeTest
         return [
             [
                 [
-                    'allowedExternalVideoSource' => [Type::SOURCE_CLOUDFLARE],
+                    'allowedExternalVideoSources' => [Type::SOURCE_CLOUDFLARE],
                 ],
             ],
         ];
@@ -151,13 +151,13 @@ class ExternalVideoTypeTest extends FieldTypeTest
                 // Unknown key
                 [
                     'unknownKey' => 'Unknown',
-                    'allowedExternalVideoSource' => [Type::SOURCE_CLOUDFLARE],
+                    'allowedExternalVideoSources' => [Type::SOURCE_CLOUDFLARE],
                 ],
             ],
             [
                 // Invalid video source
                 [
-                    'allowedExternalVideoSource' => ['invalid_video_source'],
+                    'allowedExternalVideoSources' => ['invalid_video_source'],
                 ],
             ],
         ];
@@ -237,7 +237,7 @@ class ExternalVideoTypeTest extends FieldTypeTest
     protected function getSettingsSchemaExpectation(): array
     {
         return [
-            'allowedExternalVideoSource' => [
+            'allowedExternalVideoSources' => [
                 'type' => 'array',
                 'default' => [
                     Type::SOURCE_CLOUDFLARE,

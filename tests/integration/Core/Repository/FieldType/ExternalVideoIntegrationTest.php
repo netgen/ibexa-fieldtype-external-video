@@ -27,7 +27,7 @@ class ExternalVideoIntegrationTest extends BaseIntegrationTest
     public function getSettingsSchema(): array
     {
         return [
-            'allowedExternalVideoSource' => [
+            'allowedExternalVideoSources' => [
                 'type' => 'array',
                 'default' => [
                     Type::SOURCE_CLOUDFLARE,
@@ -44,7 +44,7 @@ class ExternalVideoIntegrationTest extends BaseIntegrationTest
     public function getValidFieldSettings(): array
     {
         return [
-            'allowedExternalVideoSource' => [Type::SOURCE_CLOUDFLARE],
+            'allowedExternalVideoSources' => [Type::SOURCE_CLOUDFLARE],
         ];
     }
 
@@ -56,7 +56,7 @@ class ExternalVideoIntegrationTest extends BaseIntegrationTest
     public function getInvalidFieldSettings(): array
     {
         return [
-            'allowedExternalVideoSource' => ['invalid_video_source'],
+            'allowedExternalVideoSources' => ['invalid_video_source'],
         ];
     }
 
@@ -170,15 +170,15 @@ class ExternalVideoIntegrationTest extends BaseIntegrationTest
             'empty_settings' => [
                 [],
                 [
-                    'allowedExternalVideoSource' => [Type::SOURCE_CLOUDFLARE],
+                    'allowedExternalVideoSources' => [Type::SOURCE_CLOUDFLARE],
                 ],
             ],
             'complete_settings' => [
                 [
-                    'allowedExternalVideoSource' => [Type::SOURCE_CLOUDFLARE],
+                    'allowedExternalVideoSources' => [Type::SOURCE_CLOUDFLARE],
                 ],
                 [
-                    'allowedExternalVideoSource' => [Type::SOURCE_CLOUDFLARE],
+                    'allowedExternalVideoSources' => [Type::SOURCE_CLOUDFLARE],
                 ],
             ],
         ];
