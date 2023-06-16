@@ -3,7 +3,7 @@
 {% block ngexternalvideo_field_definition_edit %}
 	{% set is_translation = is_translation ?? false %}
 	<hr>
-	<div class="ngexternalvideo-settings selection-root ibexa-default-location">
+	<div class="ngexternalvideo-settings">
 		<h2>{{ 'ngexternalvideo.field_definition.section.root'|trans }}</h2>
 		<hr>
 		{{- form_row(form.allowedExternalVideoSources, { disabled: is_translation, attr: { class: 'allowed-external-video-sources' } }) -}}
