@@ -40,9 +40,6 @@
                 fetch(url, options)
                     .then(response => response.json())
                     .then(response => {
-                        // Convert the API response object to a string
-                        const responseString = JSON.stringify(response);
-                        // Populate the textarea field with the API response string
                         if (response.result) {
                             if (response.result.meta.filename) {
                                 document.getElementById('video_name').textContent = response.result.meta.filename;
