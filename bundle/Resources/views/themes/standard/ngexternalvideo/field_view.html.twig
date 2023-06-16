@@ -1,0 +1,14 @@
+{% trans_default_domain "content_fields" %}
+
+{% extends "@IbexaCore/content_fields.html.twig" %}
+
+{% block ngexternalvideo_field %}
+    {% apply spaceless %}
+        {% if not ibexa_field_is_empty( content, field ) %}
+            <div {{ block( 'field_attributes' ) }}>
+                <p>{{ 'ngexternalvideo.field_view.source'|trans|desc('Source') }}: {{ field.value.source }}</p>
+                <p>{{ 'ngexternalvideo.field_view.id'|trans|desc('ID') }}: {{ field.value.id }}</p>
+            </div>
+        {% endif %}
+    {% endapply %}
+{% endblock %}
