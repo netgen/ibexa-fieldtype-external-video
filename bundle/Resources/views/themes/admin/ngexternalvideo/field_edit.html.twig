@@ -7,7 +7,7 @@
 	{% set is_translation = is_translation ?? false %}
 
 	<div class="video-sources-options">
-		{{- form_row(form.video_source, { disabled: is_translation }) -}}
+		{{- form_row(form.source, { disabled: is_translation }) -}}
 	</div>
 
 	{{ form_row(form.id, {'attr': {'class': 'ibexa-field-edit-ngexternalvideo-id'}, disabled: is_translation}) }}
