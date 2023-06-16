@@ -15,15 +15,18 @@
             };
 
             function clearFields() {
-                document.getElementById('video_name').innerHTML = '';
-                document.getElementById('video_duration').innerHTML = '';
-                document.getElementById('video_resolution').innerHTML = '';
-                document.getElementById('video_thumbnail_image').src = '';
-                document.getElementById('video_date_uploaded').innerHTML = '';
+                const wrapper = document.querySelector('.ibexa-field-edit__ngexternalvideo-wrapper');
+                wrapper.style.display = 'none';
+
                 const noVideoFoundMessage = document.getElementById('no_video_found_message');
                 if (noVideoFoundMessage) {
                     noVideoFoundMessage.parentNode.removeChild(noVideoFoundMessage);
                 }
+            }
+
+            function showFields() {
+                const wrapper = document.querySelector('.ibexa-field-edit__ngexternalvideo-wrapper');
+                wrapper.style.display = 'block';
             }
 
             function fetchData(formClass) {
@@ -37,25 +40,23 @@
                 fetch(url, options)
                     .then(response => response.json())
                     .then(response => {
-                        // Convert the API response object to a string
-                        const responseString = JSON.stringify(response);
-                        // Populate the textarea field with the API response string
                         if (response.result) {
                             if (response.result.meta.filename) {
-                                document.getElementById('video_name').textContent = 'Name: ' + response.result.meta.filename;
+                                document.getElementById('video_name').textContent = response.result.meta.filename;
                             }
                             if (response.result.duration) {
-                                document.getElementById('video_duration').textContent = 'Duration: ' + response.result.duration + 's';
+                                document.getElementById('video_duration').textContent = response.result.duration + 's';
                             }
                             if (response.result.input.width && response.result.input.height) {
-                                document.getElementById('video_resolution').textContent = 'Resolution: ' + response.result.input.width + 'x' + response.result.input.height;
+                                document.getElementById('video_resolution').textContent = response.result.input.width + 'x' + response.result.input.height;
                             }
                             if (response.result.thumbnail) {
-                                document.getElementById('video_thumbnail_image').src =response.result.thumbnail;
+                                document.getElementById('video_thumbnail_image').src = response.result.thumbnail;
                             }
                             if (response.result.uploaded) {
-                                document.getElementById('video_date_uploaded').textContent = 'Uploaded at: ' + response.result.uploaded;
+                                document.getElementById('video_date_uploaded').textContent = response.result.uploaded;
                             }
+                            showFields();
                             const noVideoFoundMessage = document.getElementById('no_video_found_message');
                             if (noVideoFoundMessage) {
                                 noVideoFoundMessage.parentNode.removeChild(noVideoFoundMessage);
@@ -83,6 +84,7 @@
                 fetchData(formClass);
             });
 
+            clearFields();
             fetchData(initialFormClass);
         });
     });

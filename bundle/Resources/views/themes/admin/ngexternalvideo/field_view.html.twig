@@ -10,13 +10,46 @@
                 {% set token = app.request.server.get('CLOUDFLARE_BEARER_TOKEN') %}
                 {% set url = app.request.server.get('CLOUDFLARE_API_URL') %}
                 <div id="data-api" data-url="{{ url~field.value.id }}" data-token="{{ token }}" style="display: none;"></div>
-                <p>Source: {{ field.value.source }}</p>
-                <p>ID: {{ field.value.id }}</p>
-                <p id="video_name"></p>
-                <p id="video_duration"></p>
-                <p id="video_resolution"></p>
-                <p id="video_date_uploaded"></p>
-                <img id="video_thumbnail_image"/>
+                <div class="ibexa-field-preview__ngexternalvideo-wrapper">
+                    <div class="ibexa-field-preview__thumbnail">
+                        <img id="video_thumbnail_image"/>
+                    </div>
+                    <div class="ibexa-field-preview__meta-wrapper">
+                        <table>
+                            <thead>
+                            <tr class="ibexa-field-preview__meta-title-row">
+                                <th class="">{{ 'ngexternalvideo.field_view.video_properties'|trans|desc('External video properties') }}:</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="ibexa-field-preview__meta-value-row">
+                                <td>{{ 'ngexternalvideo.field_view.source'|trans|desc('Source') }}:</td>
+                                <td>{{ field.value.source }}</td>
+                            </tr>
+                            <tr class="ibexa-field-preview__meta-value-row">
+                                <td>{{ 'ngexternalvideo.field_view.id'|trans|desc('ID') }}:</td>
+                                <td>{{ field.value.id }}</td>
+                            </tr>
+                            <tr class="ibexa-field-preview__meta-value-row">
+                                <td>{{ 'ngexternalvideo.field_view.name'|trans|desc('Name') }}:</td>
+                                <td id="video_name"></td>
+                            </tr>
+                            <tr class="ibexa-field-preview__meta-value-row">
+                                <td>{{ 'ngexternalvideo.field_view.duration'|trans|desc('Duration') }}:</td>
+                                <td id="video_duration"></td>
+                            </tr>
+                            <tr class="ibexa-field-preview__meta-value-row">
+                                <td>{{ 'ngexternalvideo.field_view.resolution'|trans|desc('Resolution') }}:</td>
+                                <td id="video_resolution"></td>
+                            </tr>
+                            <tr class="ibexa-field-preview__meta-value-row">
+                                <td>{{ 'ngexternalvideo.field_view.date_uploaded'|trans|desc('Date uploaded') }}:</td>
+                                <td id="video_date_uploaded"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         {% endif %}
     {% endapply %}

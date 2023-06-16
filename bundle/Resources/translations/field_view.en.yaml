@@ -1,0 +1,7 @@
+ngexternalvideo.field_view.video_properties: 'External video properties'
+ngexternalvideo.field_view.source: 'Source'
+ngexternalvideo.field_view.id: 'ID'
+ngexternalvideo.field_view.name: 'Name'
+ngexternalvideo.field_view.duration: 'Duration'
+ngexternalvideo.field_view.resolution: 'Resolution'
+ngexternalvideo.field_view.date_uploaded: 'Date uploaded'
