@@ -1,9 +1,11 @@
 (function (global, doc, ibexa, React, ReactDOM, Translator) {
     const SELECTOR_FIELD = '.ibexa-field-preview--ngexternalvideo';
 
-    [...doc.querySelectorAll(SELECTOR_FIELD)].forEach((fieldContainer) => {
-        document.addEventListener('DOMContentLoaded', function () {
-            const dataElement = document.getElementById('data-api');
+    doc.addEventListener('DOMContentLoaded', function () {
+        const fieldContainers = doc.querySelectorAll(SELECTOR_FIELD);
+
+        fieldContainers.forEach((fieldContainer) => {
+            const dataElement = fieldContainer.querySelector('#data-api');
             const url = dataElement.dataset.url;
             const token = dataElement.dataset.token;
             const options = {
@@ -13,23 +15,26 @@
                     'Authorization': 'Bearer ' + token
                 }
             };
+
             fetch(url, options)
                 .then(response => response.json())
                 .then(response => {
+                    const fieldPreview = fieldContainer.querySelector('.ibexa-field-preview__ngexternalvideo-wrapper');
+
                     if (response.result.meta.filename) {
-                        document.getElementById('video_name').textContent = response.result.meta.filename;
+                        fieldPreview.querySelector('#video_name').textContent = response.result.meta.filename;
                     }
                     if (response.result.duration) {
-                        document.getElementById('video_duration').textContent = response.result.duration + 's';
+                        fieldPreview.querySelector('#video_duration').textContent = response.result.duration + 's';
                     }
                     if (response.result.input.width && response.result.input.height) {
-                        document.getElementById('video_resolution').textContent = response.result.input.width + 'x' + response.result.input.height;
+                        fieldPreview.querySelector('#video_resolution').textContent = response.result.input.width + 'x' + response.result.input.height;
                     }
                     if (response.result.thumbnail) {
-                        document.getElementById('video_thumbnail_image').src =response.result.thumbnail;
+                        fieldPreview.querySelector('#video_thumbnail_image').src = response.result.thumbnail;
                     }
                     if (response.result.uploaded) {
-                        document.getElementById('video_date_uploaded').textContent = response.result.uploaded;
+                        fieldPreview.querySelector('#video_date_uploaded').textContent = response.result.uploaded;
                     }
                 })
                 .catch(err => console.error(err));
