@@ -36,6 +36,11 @@
                     if (response.result.uploaded) {
                         fieldPreview.querySelector('#video_date_uploaded').textContent = response.result.uploaded;
                     }
+                    if (response.result.preview) {
+                        const videoPreviewLink = fieldContainer.querySelector('#video_preview_link');
+                        videoPreviewLink.href = response.result.preview;
+                        videoPreviewLink.textContent = response.result.preview;
+                    }
                 })
                 .catch(err => console.error(err));
         });

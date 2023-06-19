@@ -58,6 +58,11 @@
                             if (response.result.uploaded) {
                                 fieldContainer.querySelector('#video_date_uploaded').textContent = response.result.uploaded;
                             }
+                            if (response.result.preview) {
+                                const videoPreviewLink = fieldContainer.querySelector('#video_preview_link');
+                                videoPreviewLink.href = response.result.preview;
+                                videoPreviewLink.textContent = response.result.preview;
+                            }
                             showFields();
                             const noVideoFoundMessage = fieldContainer.querySelector('#no_video_found_message');
                             if (noVideoFoundMessage) {
