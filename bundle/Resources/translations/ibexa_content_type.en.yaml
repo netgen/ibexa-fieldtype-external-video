@@ -1,0 +1,3 @@
+ngexternalvideo.field_definition.selection_allowed_video_sources: 'Allowed video sources'
+ngexternalvideo.field_definition.section.root: 'External video options'
+ngexternalvideo.field_definition.video_source.cloudflare: 'Cloudflare'
